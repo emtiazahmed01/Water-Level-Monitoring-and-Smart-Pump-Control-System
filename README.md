@@ -266,7 +266,7 @@ Consumption forecasting · leak detection from anomalous draw-down · predictive
 
 ## Report
 
-The full academic report — literature review, methodology, simulation validation, quantitative results, cost analysis and roadmap — is in [Project_Report_Final.pdf`](Project_Report.pdf).
+The full academic report — literature review, methodology, simulation validation, quantitative results, cost analysis and roadmap — is in [Project_Report_Final.pdf`](Project_Report_Final.pdf).
 
 Chapters most worth reading:
 
