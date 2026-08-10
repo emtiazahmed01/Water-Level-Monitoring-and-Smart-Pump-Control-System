@@ -164,7 +164,7 @@ The template defines **must** sit above `#include <BlynkSimpleEsp32.h>` — the 
 Measure from the sensor face down to the **empty** tank bottom, and set:
 
 ```cpp
-int MaxLevel = 13;   // your tank depth in cm
+int MaxLevel = 13;   //tank depth in cm
 ```
 
 Update the `V0` datastream maximum in Blynk to match.
@@ -266,7 +266,7 @@ Consumption forecasting · leak detection from anomalous draw-down · predictive
 
 ## Report
 
-The full academic report — literature review, methodology, simulation validation, quantitative results, cost analysis and roadmap — is in [`docs/Project_Report.pdf`](docs/Project_Report.pdf).
+The full academic report — literature review, methodology, simulation validation, quantitative results, cost analysis and roadmap — is in [`/Project_Report_Final.pdf`](docs/Project_Report.pdf).
 
 Chapters most worth reading:
 
