@@ -22,7 +22,6 @@ An ESP32 water level monitor with non-contact ultrasonic sensing, a five-state l
 - [Critical Wiring Notes](#critical-wiring-notes)
 - [Getting Started](#getting-started)
 - [How It Works](#how-it-works)
-- [Repository Structure](#repository-structure)
 - [Troubleshooting](#troubleshooting)
 - [Known Limitations](#known-limitations)
 - [Roadmap](#roadmap)
@@ -36,7 +35,7 @@ An ESP32 water level monitor with non-contact ultrasonic sensing, a five-state l
 
 Overhead water tanks are still managed almost entirely by eye. Run the pump too long and the tank overflows down the side of the building; run it against an empty source and the motor burns out dry. Neither failure announces itself until the damage is underway.
 
-This project replaces the guesswork with a sub-2,300 BDT node. An HC-SR04 measures the air gap above the water without ever touching it, an ESP32 converts that to a depth and classifies it into five states, and the result appears in three places at once — a 16×2 LCD at the tank, a four-LED bar, and a Blynk dashboard on your phone. When the tank reaches its full threshold the firmware opens the relay itself, so overflow protection does not depend on anyone being awake.
+An HC-SR04 measures the air gap above the water without ever touching it, an ESP32 converts that to a depth and classifies it into five states, and the result appears in three places at once — a 16×2 LCD at the tank, a four-LED bar, and a Blynk dashboard on your phone. When the tank reaches its full threshold the firmware opens the relay itself, so overflow protection does not depend on anyone being awake.
 
 The design was validated in the [Wokwi simulator](#live-simulation) before a single component was connected, which caught five logic and pin-allocation defects at zero component risk.
 
@@ -56,8 +55,6 @@ The design was validated in the [Wokwi simulator](#live-simulation) before a sin
 
 No installation, no hardware. The simulated HC-SR04 exposes its distance as a draggable parameter, so you can sweep the full tank range and watch the states, LEDs, LCD and relay respond in real time.
 
-> **Note on fidelity:** Wokwi models a component's intended *function*, not its physical limits. The simulated sensor has no dead zone and simulated pins have no voltage rating. See [Known Limitations](#known-limitations) — this distinction matters and is the subject of Chapter 6.5 of the report.
-
 ## Hardware
 
 | Component | Spec | Qty |
@@ -75,7 +72,6 @@ No installation, no hardware. The simulated HC-SR04 exposes its distance as a dr
 | Breadboard | Full size | 2 |
 | Jumper wires | M-M, M-F, F-F | — |
 
-**Approximate build cost: 2,254 BDT (~$19 USD)**
 
 ## Wiring
 
@@ -155,9 +151,9 @@ Open `firmware/water_level_monitor.ino` and fill in the marked lines:
 #define BLYNK_TEMPLATE_ID   "TMPLxxxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Water level monitoring system"
 
-char auth[] = "YOUR_BLYNK_AUTH_TOKEN";
-char ssid[] = "YOUR_WIFI_SSID";
-char pass[] = "YOUR_WIFI_PASSWORD";
+char auth[] = "BLYNK_AUTH_TOKEN";
+char ssid[] = "WIFI_SSID";
+char pass[] = "WIFI_PASSWORD";
 ```
 
 The template defines **must** sit above `#include <BlynkSimpleEsp32.h>` — the library reads them at compile time.
@@ -223,24 +219,6 @@ The LCD subsystem is deliberately defensive, because the HD44780 in 4-bit mode d
 - Both rows buffered and redrawn in full, so corruption self-clears in one second
 - Scheduled reinitialisation every 60 s recovers nibble desync with no manual power cycle
 
-## Repository Structure
-
-```
-.
-├── firmware/
-│   ├── water_level_monitor.ino     # main sketch (Wokwi-validated)
-│   └── hardware_test.ino           # bring-up diagnostic — run this first
-├── simulation/
-│   ├── diagram.json                # Wokwi circuit definition
-│   └── wokwi-screenshot.png
-├── docs/
-│   ├── Project_Report.pdf
-│   ├── wiring-diagram.png
-│   └── figures/
-├── .gitignore
-├── LICENSE
-└── README.md
-```
 
 ## Troubleshooting
 
@@ -299,11 +277,11 @@ Chapters most worth reading:
 
 | Name | Roll |
 |---|---|
-| [Student Name 1] | [Roll No.] |
-| [Student Name 2] | [Roll No.] |
-| [Student Name 3] | [Roll No.] |
+| [MD. Emtiaz Ahmed Emon] | [MUH2211032M] |
+| [MD. Shazzadul Haque] | [ASH2211033M] |
+| [Mithila Jahan Choity] | [NFH2211034F] |
 
-**Supervisor:** [Supervisor Name], [Designation]
+**Supervisor:** [Ishtiaq Ahammad], [Lecturer]
 Department of Information and Communication Engineering
 Noakhali Science and Technology University
 
